@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-3">
+    <div class="well well-sm" style="background: url(<%= @profile.avatar.url(:large) %>); background-size: cover; min-height: 225px; min-width: 225px; background-position: center;">
+
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="page-header">
+      <h2><%= @profile.username %></h2>
+      <h5>Member for <%= time_ago_in_words(@profile.created_at) %> - <%= @profile.posts.count %> posts</h5>
+    </div>
+    <% if current_user.profile.id == @profile.id %>
+      <%= link_to 'Edit my Profile', edit_profile_path %>      
+    <% end %>
+
+  </div>
+</div>
+
+<div class="row">
+  <% @posts.each do |p| %>
+    <%= render 'posts/smallpost', :post => p %>
+  <% end %>
+</div>

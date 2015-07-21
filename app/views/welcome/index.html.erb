@@ -1,0 +1,8 @@
+<div class="row">
+
+<h1>Welcome#index</h1>
+
+<% @posts.each do |p| %>
+	<%= render 'posts/smallpost', :post => p %>
+<% end %>
+</div>

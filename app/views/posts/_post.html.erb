@@ -1,0 +1,19 @@
+<div class="well well-sm">
+  <p>
+    <span class="post-creator" style="background-image: url(<%= post.profile.avatar(:thumb) %>)"></span>
+    <strong><%= link_to post.profile.username, post.profile %></strong>
+    <span style="float: right; font-size: 8pt;"><%= time_ago_in_words(post.created_at) %> ago</span>
+  </p>
+
+  <div id="postPic" style="background-image: url(<%= post.picture.url %>)">
+    <% if user_signed_in? && current_user.id == post.user_id %>
+      <%= button_to "Delete", post_path(post.id), data: { confirm: "Are you sure?" }, :class =>'btn btn-danger post-destroy', method: :delete %>
+    <% end %>
+  </div>
+  <hr />
+  <p>
+    <span class="post-creator" style="background-image: url(<%= post.profile.avatar(:thumb) %>)"></span>
+    <strong><%= link_to post.profile.username, post.profile %></strong>
+    <%= post.description %>
+  </p>
+</div>
