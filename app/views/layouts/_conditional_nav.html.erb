@@ -1,0 +1,40 @@
+<% if user_signed_in? %>
+	<li class=""><%= link_to 'New Post', new_post_path %></li>
+	<li class="dropdown">
+		<% if current_user.profile %>
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="post-creator" style="background-image: url(<%=current_user.profile.avatar(:thumb) %>)"></span>
+			<%= current_user.profile.username %><span class ="caret"></span></a>
+
+		<% else %>
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %><span class="caret"></span></a>
+		<% end %>
+		<ul class="dropdown-menu">
+			<li><a href="/profiles">Profile</a></li>
+			<li><%= link_to 'Account Settings', edit_user_registration_path %></li>
+			<li><%= link_to 'Account Settings', edit_user_registration_path %></li>
+			<li role="separator" class="divider"></li>
+			<li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+		</ul>
+	</li>
+<% else %>
+	<li><%= link_to 'Login', new_user_session_path %></li>
+	<li><%= link_to 'Sign Up', new_user_registration_path %></li>
+<% end %>
+
+				
+			
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
