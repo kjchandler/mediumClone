@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 #gems I have installed
 gem 'devise'
 gem 'paperclip', '~> 4.3'
-gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record

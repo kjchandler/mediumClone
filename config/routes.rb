@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  get 'all_posts/new'
+
   root "welcome#index"
   resources :profiles
   resources :posts
